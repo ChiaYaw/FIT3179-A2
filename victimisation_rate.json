@@ -1,0 +1,39 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Your Map Title",
+  "width": 800,
+  "height": 400,
+  "projection": {"type": "equalEarth"},
+  "data": {
+    "url": "map.json",
+    "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.NAME",
+      "from": {
+        "data": {
+          "url": "Victimisation_Rate.xlsx"
+        },
+        "key": "Country",
+        "fields": ["YourValueField"]
+      }
+    },
+    {
+      "calculate": "datum.YourValueField + 0.1",
+      "as": "Adjusted Value"
+    }
+  ],
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Adjusted Value",
+      "type": "quantitative",
+      "scale": {"type": "log"}
+    },
+    "tooltip": [
+      {"field": "Country"},
+      {"field": "Adjusted Value"}
+    ]
+  }
+}
