@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Victimisation Rate by State/Territory",
   "width": 800,
-  "height": 400,
+  "height": 600,
   "data": {
     "url": "https://raw.githubusercontent.com/ChiaYaw/week-9-homework/refs/heads/main/map.json",
     "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
@@ -14,21 +14,25 @@
         "data": {
           "url": "https://raw.githubusercontent.com/ChiaYaw/week-9-homework/refs/heads/main/Victimisation_Rate.csv"
         },
-        "key": "State",
-        "fields": ["Victimisation Rate"]
+        "key": "State/Territory",
+        "fields": ["Victimisation_Rate"]
       }
     }
   ],
-  "projection": {"type": "equalEarth"},
+"projection": {
+  "type": "albers",
+  "parallels": [0, 0],
+  "rotate": [0, 0]
+  },
   "mark": {"type": "geoshape"},
   "encoding": {
     "color": {
-      "field": "Victimisation Rate",
+      "field": "Victimisation_Rate",
       "type": "quantitative"
     },
     "tooltip": [
       {"field": "properties.NAME", "type": "nominal", "title": "State/Territory"},
-      {"field": "Victimisation Rate", "type": "quantitative"}
+      {"field": "Victimisation_Rate", "type": "quantitative"}
     ]
   }
 }
