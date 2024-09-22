@@ -14,7 +14,7 @@
         "data": {
           "url": "https://raw.githubusercontent.com/ChiaYaw/week-9-homework/refs/heads/main/Victimisation_Rate.csv"
         },
-        "key": "State/Territory",
+        "key": "State",
         "fields": ["Victimisation_Rate"]
       }
     }
@@ -31,8 +31,8 @@
       "type": "quantitative"
     },
     "tooltip": [
-      {"field": "properties.NAME", "type": "nominal", "title": "State/Territory"},
-      {"field": "Victimisation_Rate", "type": "quantitative"}
+      {"field": "properties.NAME", "type": "nominal", "title": "State/Territory:"},
+      {"field": "Victimisation_Rate", "type": "quantitative", "title": "Victimisation Rate:"}
     ]
   }
 }
