@@ -1,0 +1,39 @@
+body {
+    margin-left: 10em;
+    margin-right: 10em;
+}
+
+h1 {
+    background-color: aliceblue;
+    text-align: center;
+    margin-top: auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+}
+
+.container {
+    margin-left: 3em;
+    margin-right: 3em;
+}
+
+.map-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    margin-left: 10em;
+}
+
+footer {
+    background-color: aliceblue;
+    text-align: center;
+    margin-top: 3em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
