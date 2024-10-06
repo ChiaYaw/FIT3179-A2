@@ -6,44 +6,63 @@
     "text": "Victimisation Rate by State/Territory in 2022",
     "fontSize": 22
   },
-  "data": {
-    "url": "https://raw.githubusercontent.com/ChiaYaw/week-9-homework/refs/heads/main/Australia_map.json",
-    "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
-  },
-  "transform": [
+  "params": [
     {
-      "lookup": "properties.name",
-      "from": {
-        "data": {
-          "url": "https://raw.githubusercontent.com/ChiaYaw/week-9-homework/refs/heads/main/dataset/Victimisation_Rate.csv"
-        },
-        "key": "State/Territory",
-        "fields": ["Victimisation_Rate", "Year"]
+      "name": "Year_selection",
+      "value": 2022,
+      "bind": {
+        "input": "range",
+        "min": 2008,
+        "max": 2022,
+        "step": 1,
+        "name": "Year: "
       }
     }
   ],
   "projection": {"type": "albers", "parallels": [0, 0]},
   "layer": [
     {
+      "data": {
+        "url": "https://raw.githubusercontent.com/ChiaYaw/week-10-homework/refs/heads/main/dataset/Victimisation_Rate_v1_1.csv"
+      },
+      "transform": [
+        {
+          "lookup": "State/Territory",
+          "from": {
+            "data": {
+              "url": "https://raw.githubusercontent.com/ChiaYaw/week-10-homework/refs/heads/main/Australia_map.json",
+              "format": {
+                "type": "topojson",
+                "feature": "ne_50m_admin_1_states_provinces"
+              }
+            },
+            "key": "properties.name"
+          },
+          "as": "geo"
+        },
+        {"filter": "datum.Year == Year_selection"}
+      ],
       "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1.5},
       "encoding": {
+        "shape": {"field": "geo", "type": "geojson"},
         "color": {
-          "field": "Victimisation_Rate",
+          "field": "Victimisation Rate",
           "type": "quantitative",
-          "scale": {"domain": [0, 5]},
+          "scale": {"domain": [0, 12]},
           "legend": {"title": "Victimisation Rate (%)"}
         },
         "tooltip": [
           {
-            "field": "properties.name",
+            "field": "State/Territory",
             "type": "nominal",
             "title": "State/Territory"
           },
           {
-            "field": "Victimisation_Rate",
+            "field": "Victimisation Rate",
             "type": "quantitative",
             "title": "Victimisation Rate (%)"
-          }
+          },
+          {"field": "Year", "type": "quantitative", "title": "Year"}
         ]
       }
     }
