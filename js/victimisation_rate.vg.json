@@ -15,7 +15,7 @@
       "lookup": "properties.name",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/ChiaYaw/week-9-homework/refs/heads/main/Victimisation_Rate.csv"
+          "url": "https://raw.githubusercontent.com/ChiaYaw/week-9-homework/refs/heads/main/dataset/Victimisation_Rate.csv"
         },
         "key": "State/Territory",
         "fields": ["Victimisation_Rate", "Year"]
