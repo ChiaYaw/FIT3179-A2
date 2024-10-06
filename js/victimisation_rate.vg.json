@@ -5,7 +5,7 @@
   "title": {
     "text": "Victimisation Rate by State/Territory in 2022",
     "fontSize": 22
-    },
+  },
   "data": {
     "url": "https://raw.githubusercontent.com/ChiaYaw/week-9-homework/refs/heads/main/Australia_map.json",
     "format": {"type": "topojson", "feature": "ne_50m_admin_1_states_provinces"}
@@ -22,10 +22,7 @@
       }
     }
   ],
-  "projection": {
-    "type": "albers",
-    "parallels": [0, 0]
-  },
+  "projection": {"type": "albers", "parallels": [0, 0]},
   "layer": [
     {
       "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1.5},
@@ -37,17 +34,19 @@
           "legend": {"title": "Victimisation Rate (%)"}
         },
         "tooltip": [
-          {"field": "properties.name", "type": "nominal", "title": "State/Territory"},
-          {"field": "Victimisation_Rate", "type": "quantitative", "title": "Victimisation Rate (%)"}
+          {
+            "field": "properties.name",
+            "type": "nominal",
+            "title": "State/Territory"
+          },
+          {
+            "field": "Victimisation_Rate",
+            "type": "quantitative",
+            "title": "Victimisation Rate (%)"
+          }
         ]
       }
     }
   ],
-  "config": {
-  "style": {
-    "cell": {
-      "stroke": "transparent"
-    }
-  }
-}
+  "config": {"style": {"cell": {"stroke": "transparent"}}}
 }
