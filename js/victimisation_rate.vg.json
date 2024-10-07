@@ -1,11 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 1000,
-  "height": 600,
-  "title": {
-    "text": "Victimisation Rate by State/Territory in 2022",
-    "fontSize": 22
-  },
   "params": [
     {
       "name": "Year_selection",
@@ -19,53 +13,125 @@
       }
     }
   ],
-  "projection": {"type": "albers", "parallels": [0, 0]},
-  "layer": [
+  "vconcat": [
     {
+      "width": 750,
+      "height": 400,
+      "title": {
+        "text": "Victimisation Rate by State/Territory from 2008 to 2022",
+        "fontSize": 22
+      },
+      "projection": {"type": "albers", "parallels": [0, 0]},
+      "layer": [
+        {
+          "data": {
+            "url": "https://raw.githubusercontent.com/ChiaYaw/week-10-homework/refs/heads/main/dataset/Victimisation_Rate_v1.3.csv"
+          },
+          "transform": [
+            {
+              "lookup": "State/Territory",
+              "from": {
+                "data": {
+                  "url": "https://raw.githubusercontent.com/ChiaYaw/week-10-homework/refs/heads/main/Australia_map.json",
+                  "format": {
+                    "type": "topojson",
+                    "feature": "ne_50m_admin_1_states_provinces"
+                  }
+                },
+                "key": "properties.name"
+              },
+              "as": "geo"
+            },
+            {"filter": "datum.Year == Year_selection"},
+            {
+              "calculate": "'The Northern Territory always has the highest rate of: ' + datum['Victimisation Rate']",
+              "as": "text_annotation"
+            }
+          ],
+          "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1.5},
+          "encoding": {
+            "shape": {"field": "geo", "type": "geojson"},
+            "color": {
+              "field": "Victimisation Rate",
+              "type": "quantitative",
+              "scale": {"domain": [0, 12]},
+              "legend": {"title": "Victimisation Rate (%)"}
+            },
+            "tooltip": [
+              {
+                "field": "State/Territory",
+                "type": "nominal",
+                "title": "State/Territory"
+              },
+              {
+                "field": "Victimisation Rate",
+                "type": "quantitative",
+                "title": "Victimisation Rate (%)",
+                "format": ".1f"
+              },
+              {"field": "Year", "type": "quantitative", "title": "Year"}
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "dx": 5,
+            "dy": -5,
+            "fontSize": 12,
+            "fontStyle": "italic"
+          },
+          "encoding": {
+            "text": {"field": "text_annotation"}
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "text": "Victimisation Rate by State/Territory and Crime Type",
+        "fontSize": 22
+      },
+      "width": 750,
+      "height": 400,
+      "mark": "bar",
       "data": {
         "url": "https://raw.githubusercontent.com/ChiaYaw/week-10-homework/refs/heads/main/dataset/Victimisation_Rate_v1.3.csv"
       },
-      "transform": [
-        {
-          "lookup": "State/Territory",
-          "from": {
-            "data": {
-              "url": "https://raw.githubusercontent.com/ChiaYaw/week-10-homework/refs/heads/main/Australia_map.json",
-              "format": {
-                "type": "topojson",
-                "feature": "ne_50m_admin_1_states_provinces"
-              }
-            },
-            "key": "properties.name"
-          },
-          "as": "geo"
-        },
-        {"filter": "datum.Year == Year_selection"}
-      ],
-      "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1.5},
+      "transform": [{"filter": "datum.Year == Year_selection"}],
       "encoding": {
-        "shape": {"field": "geo", "type": "geojson"},
-        "color": {
+        "x": {
+          "field": "State/Territory",
+          "type": "nominal",
+          "title": "State/Territory"
+        },
+        "y": {
           "field": "Victimisation Rate",
           "type": "quantitative",
-          "scale": {"domain": [0, 12]},
-          "legend": {"title": "Victimisation Rate (%)"}
+          "title": "Victimisation Rate (%)"
+        },
+        "color": {
+          "field": "Crime Type",
+          "type": "nominal",
+          "legend": {"title": "Crime Type"}
         },
         "tooltip": [
+          {"field": "Crime Type", "type": "nominal", "title": "Crime Type:"},
+          {
+            "field": "Victimisation Rate",
+            "type": "quantitative",
+            "title": "Victimisation Rate (%)",
+            "format": ".1f"
+          },
           {
             "field": "State/Territory",
             "type": "nominal",
             "title": "State/Territory"
           },
-          {
-            "field": "Victimisation Rate",
-            "type": "quantitative",
-            "title": "Victimisation Rate (%)"
-          },
           {"field": "Year", "type": "quantitative", "title": "Year"}
         ]
       }
     }
-  ],
-  "config": {"style": {"cell": {"stroke": "transparent"}}}
+  ]
 }

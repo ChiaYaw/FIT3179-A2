@@ -1,0 +1,83 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 750,
+    "height": 400,
+    "title": {
+      "text": "Victimisation Rate Trend by State/Territory and Crime Type (2008-2022)",
+      "fontSize": 22
+    },
+    "params": [
+      {
+        "name": "State_selection",
+        "value": "New South Wales",
+        "bind": {
+          "input": "select",
+          "options": [
+            "New South Wales",
+            "Victoria",
+            "Queensland",
+            "South Australia",
+            "Western Australia",
+            "Tasmania",
+            "Northern Territory",
+            "Australian Capital Territory"
+          ],
+          "name": "State/Territory: "
+        }
+      },
+      {
+        "name": "CrimeType_selection",
+        "value": "Physical Assult",
+        "bind": {
+          "input": "select",
+          "options": [
+            "Physical Assult",
+            "Direct Threat",
+            "Indirect Threat",
+            "Combined Threats",
+            "Combined Assults"
+          ],
+          "name": "Crime Type: "
+        }
+      }
+    ],
+    "data": {
+      "url": "https://raw.githubusercontent.com/ChiaYaw/week-10-homework/refs/heads/main/dataset/Victimisation_Rate_v1.3.csv"
+    },
+    "transform": [
+      {"filter": "datum['State/Territory'] == State_selection"},
+      {"filter": "datum['Crime Type'] == CrimeType_selection"}
+    ],
+    "width": 800,
+    "height": 400,
+    "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
+    "encoding": {
+      "x": {
+        "field": "Year",
+        "type": "quantitative",
+        "title": "Year",
+        "axis": {"format": "d"}
+      },
+      "y": {
+        "field": "Victimisation Rate",
+        "type": "quantitative",
+        "title": "Victimisation Rate (%)",
+        "scale": {"domain": [0, 10]}
+      },
+      "tooltip": [
+        {
+          "field": "State/Territory",
+          "type": "nominal",
+          "title": "State/Territory"
+        },
+        {"field": "Year", "type": "quantitative", "title": "Year"},
+        {"field": "Crime Type", "type": "nominal", "title": "Crime Type"},
+        {
+          "field": "Victimisation Rate",
+          "type": "quantitative",
+          "title": "Victimisation Rate (%)",
+          "format": ".1f"
+        }
+      ]
+    }
+  }

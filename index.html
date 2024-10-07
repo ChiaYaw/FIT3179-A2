@@ -74,14 +74,25 @@
       </div>
     </div>
 
+    <!-- Choropleth map -->
+    <div class="pure-u-1">
+      <div class="map-container">
+        <div id="trend"></div>
+      </div>
+    </div>
+
     <footer>
-      <small style="display: flex; justify-content: center">Data Source:
-        <a href="https://www.abs.gov.au/statistics/people/crime-and-justice/crime-victimisation/latest-release">  Australian Bureau of Statistics, Crime Victimisation</a>
+      <small style="display: flex; justify-content: center">Data Source:&nbsp;
+        <a href="https://www.abs.gov.au/statistics/people/crime-and-justice/crime-victimisation/latest-release">Australian Bureau of Statistics, Crime Victimisation</a>
       </small>
     </footer>
     <script type="text/javascript">
       var spec1 = "/js/victimisation_rate.vg.json";
+      var spec2 = "/js/trend.vg.json";
       vegaEmbed("#choropleth_map", spec1)
+        .then(function (result) {})
+        .catch(console.error);
+      vegaEmbed("#trend", spec2)
         .then(function (result) {})
         .catch(console.error);
     </script>
