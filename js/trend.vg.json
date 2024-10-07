@@ -2,10 +2,6 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 750,
     "height": 400,
-    "title": {
-      "text": "Victimisation Rate Trend by State/Territory and Crime Type (2008-2022)",
-      "fontSize": 22
-    },
     "params": [
       {
         "name": "State_selection",

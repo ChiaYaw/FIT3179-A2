@@ -23,7 +23,7 @@
   </head>
 
   <body>
-    <h1>Victimisation in Australia</h1>
+    <h1>Victimisation in Australia from 2008 to 2022</h1>
     <p style="text-align: center">
       Victimisation refers to the process of being made a victim <br />
       of a crime or unfair treatment. It involves individuals experiencing
@@ -34,13 +34,36 @@
     </p>
 
     <!-- Choropleth map -->
+    <h2>Victimisation Rate by State/Territory and Crime Type</h2>
     <div class="pure-u-1">
       <div class="map-container">
         <div id="choropleth_map"></div>
       </div>
     </div>
 
-    <div class="container">
+    <div class="crime-type-container">
+      <div class="pure-g">
+        <div class="pure-u-2-5">
+          <div class="pure-u-4-5"><p>Physical Assult: <br>A person is physically attacked or harmed.</p></div>
+          <div class="pure-u-4-5"><p>Direct Assult: <br>A person is threatened with harm in a face-to-face encounter.</p></div>
+          <div class="pure-u-4-5"><p>Indirect Assult: <br>Threats of harm made without a face-to-face interaction, such as through phone calls, messages, or other indirect means.</p></div>
+        </div>
+        <div class="pure-u-2-5">
+          <div class="pure-u-4-5"><p>Combined Threats: <br>Both face-to-face and non face-to-face threatened assaults. If a person has experienced both types, they are counted separately for each but only once in the total</p></div>
+          <div class="pure-u-4-5"><p>Combined Assults: <br>All instances of physical assault and threatened assault. If a person has experienced both physical and threatened assault, they are counted separately for each type but only once in the total</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Line graph -->
+    <h2>Victimisation Rate by State/Territory and Crime Type</h2>
+    <div class="pure-u-1">
+      <div class="trend-container">
+        <div id="trend"></div>
+      </div>
+    </div>
+
+    <div class="trend-text-container">
       <div class="pure-g">
         <div class="pure-u-12-24">
           <p>
@@ -74,16 +97,13 @@
       </div>
     </div>
 
-    <!-- Choropleth map -->
-    <div class="pure-u-1">
-      <div class="map-container">
-        <div id="trend"></div>
-      </div>
-    </div>
-
     <footer>
-      <small style="display: flex; justify-content: center">Data Source:&nbsp;
-        <a href="https://www.abs.gov.au/statistics/people/crime-and-justice/crime-victimisation/latest-release">Australian Bureau of Statistics, Crime Victimisation</a>
+      <small style="display: flex; justify-content: center"
+        >Data Source:&nbsp;
+        <a
+          href="https://www.abs.gov.au/statistics/people/crime-and-justice/crime-victimisation/latest-release"
+          >Australian Bureau of Statistics, Crime Victimisation</a
+        >
       </small>
     </footer>
     <script type="text/javascript">

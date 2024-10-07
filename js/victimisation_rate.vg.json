@@ -17,10 +17,6 @@
     {
       "width": 750,
       "height": 400,
-      "title": {
-        "text": "Victimisation Rate by State/Territory from 2008 to 2022",
-        "fontSize": 22
-      },
       "projection": {"type": "albers", "parallels": [0, 0]},
       "layer": [
         {
@@ -89,10 +85,6 @@
       ]
     },
     {
-      "title": {
-        "text": "Victimisation Rate by State/Territory and Crime Type",
-        "fontSize": 22
-      },
       "width": 750,
       "height": 400,
       "mark": "bar",
