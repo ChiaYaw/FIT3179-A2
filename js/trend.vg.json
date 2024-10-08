@@ -23,15 +23,15 @@
       },
       {
         "name": "CrimeType_selection",
-        "value": "Physical Assult",
+        "value": "Physical Assault",
         "bind": {
           "input": "select",
           "options": [
-            "Physical Assult",
+            "Physical Assault",
             "Direct Threat",
             "Indirect Threat",
             "Combined Threats",
-            "Combined Assults"
+            "Combined Assaults"
           ],
           "name": "Crime Type: "
         }
