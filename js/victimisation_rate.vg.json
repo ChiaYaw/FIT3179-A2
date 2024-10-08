@@ -66,7 +66,7 @@
                 "title": "Victimisation Rate (%)",
                 "format": ".1f"
               },
-              {"field": "Year", "type": "ordinal", "title": "Year"}
+              {"field": "Year", "type": "quantitative", "title": "Year"}
             ]
           }
         },
@@ -123,7 +123,7 @@
             "type": "nominal",
             "title": "State/Territory"
           },
-          {"field": "Year", "type": "ordinal", "title": "Year"}
+          {"field": "Year", "type": "quantitative", "title": "Year"}
         ]
       }
     }
