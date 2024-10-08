@@ -18,7 +18,7 @@
       "width": 750,
       "height": 400,
 
-      "projection": {"type": "albers", "parallels": [0, 0]},
+      "projection": {"type": "mercator", "parallels": [0, 0]},
       "layer": [
         {
           "data": {
@@ -97,7 +97,8 @@
         "x": {
           "field": "State/Territory",
           "type": "nominal",
-          "title": "State/Territory"
+          "title": "State/Territory",
+          "axis": {"labelAngle": -45}
         },
         "y": {
           "field": "Victimisation Rate",
