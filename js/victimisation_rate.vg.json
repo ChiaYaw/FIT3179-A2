@@ -17,6 +17,7 @@
     {
       "width": 750,
       "height": 400,
+
       "projection": {"type": "albers", "parallels": [0, 0]},
       "layer": [
         {

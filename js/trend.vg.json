@@ -44,8 +44,6 @@
       {"filter": "datum['State/Territory'] == State_selection"},
       {"filter": "datum['Crime Type'] == CrimeType_selection"}
     ],
-    "width": 800,
-    "height": 400,
     "mark": {"type": "line", "point": {"filled": false, "fill": "white"}},
     "encoding": {
       "x": {
