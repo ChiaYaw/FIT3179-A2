@@ -18,7 +18,7 @@
       "width": 750,
       "height": 400,
 
-      "projection": {"type": "mercator", "parallels": [0, 0]},
+      "projection": {"type": "mercator"},
       "layer": [
         {
           "data": {
@@ -66,7 +66,7 @@
                 "title": "Victimisation Rate (%)",
                 "format": ".1f"
               },
-              {"field": "Year", "type": "quantitative", "title": "Year"}
+              {"field": "Year", "type": "ordinal", "title": "Year"}
             ]
           }
         },
@@ -123,7 +123,7 @@
             "type": "nominal",
             "title": "State/Territory"
           },
-          {"field": "Year", "type": "quantitative", "title": "Year"}
+          {"field": "Year", "type": "ordinal", "title": "Year"}
         ]
       }
     }
