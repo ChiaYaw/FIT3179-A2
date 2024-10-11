@@ -23,89 +23,80 @@
   </head>
 
   <body>
-    <h1>Victimisation in Australia from 2008 to 2022</h1>
-    <p style="text-align: center">
-      Victimisation refers to the process of being made a victim <br />
-      of a crime or unfair treatment. It involves individuals experiencing
-      <br />
-      harm, suffering, or loss due to the actions of others. <br />
-      Victimisation can occur in various forms, such as <br />
-      physical assault, theft, or emotional abuse.
-    </p>
+    <div class="container">
+      <h1>Victimisation in Australia from 2008 to 2022</h1>
 
-    <!-- Choropleth map -->
-    <h2>Victimisation Rate by State/Territory and Crime Type</h2>
-    <div class="pure-u-1">
-      <div class="map-container">
-        <div id="choropleth_map"></div>
-      </div>
-    </div>
-
-    <div class="crime-type-container">
       <div class="pure-g">
-        <div class="pure-u-2-5">
-          <div class="pure-u-4-5"><p>Physical Assault: <br>A person is physically attacked or harmed.</p></div>
-          <div class="pure-u-4-5"><p>Direct Assault: <br>A person is threatened with harm in a face-to-face encounter.</p></div>
-          <div class="pure-u-4-5"><p>Indirect Assault: <br>Threats of harm made without a face-to-face interaction, such as through phone calls, messages, or other indirect means.</p></div>
-        </div>
-        <div class="pure-u-2-5">
-          <div class="pure-u-4-5"><p>Combined Threats: <br>Both face-to-face and non face-to-face threatened assaults. If a person has experienced both types, they are counted separately for each but only once in the total</p></div>
-          <div class="pure-u-4-5"><p>Combined Assaults: <br>All instances of physical assault and threatened assault. If a person has experienced both physical and threatened assault, they are counted separately for each type but only once in the total</p></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Line graph -->
-    <h2>Victimisation Rate Trend by State/Territory and Crime Type</h2>
-    <div class="pure-u-1">
-      <div class="trend-container">
-        <div id="trend"></div>
-      </div>
-    </div>
-
-    <div class="trend-text-container">
-      <div class="pure-g">
-        <div class="pure-u-12-24">
-          <p>
-            Victimisation rate refers to the percentage of individuals who
-            have<br />
-            experienced a particular crime within a specified period. This
-            map<br />
-            provides a visual representation of the victimisation rates across
-            different <br />
-            states and territories in Australia for the year 2022. A<br />
-            victimisation rate of 1.3% means that 1.3 out of every<br />
-            100 individuals have experienced a particular crime, such as
-            physical<br />
-          </p>
-        </div>
-        <div class="pure-u-12-24">
-          <p>
-            assault, within the specified period. To put this into
-            perspective,<br />
-            countries with lower victimisation rates, such as Japan, often
-            report<br />
-            rates below 1%, indicating a relatively safer environment. On the
-            <br />
-            other hand, some countries with higher crime rates may report<br />
-            timisation rates above 5%, highlighting more significant safety.
-            This comparison<br />
-            helps us understand the relative safety of different regions within
-            Australia.
+        <!-- Line graph -->
+        <div class="pure-u-3-4" id="trend"></div>
+        <div class="pure-u-1-4 text-container-1">
+          <p class="text-1">
+            <b>Victimisation</b> refers to the process of being made a victim of
+            a crime or unfair treatment. It involves individuals experiencing
+            harm, suffering, or loss due to the actions of others. Victimisation
+            can occur in various forms, such as physical assault, theft, or
+            emotional abuse.
           </p>
         </div>
       </div>
+
+      <div class="pure-g text-container-2">
+        <div class="pure-u-5-24">
+          <div class="text-2">
+            <p>
+              <b>Physical Assault:</b> A person is physically attacked or
+              harmed.
+            </p>
+          </div>
+          <br>
+          <div class="text-3">
+            <p>
+              <b>Direct Assault:</b> A person is threatened with harm in a
+              face-to-face encounter.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-4 pure-u-5-24">
+          <p>
+            <b>Indirect Assault:</b> Threats of harm made without a face-to-face
+            interaction, such as through phone calls, messages, or other
+            indirect means.
+          </p>
+        </div>
+        <div class="text-5 pure-u-5-24">
+          <p>
+            <b>Combined Threats:</b> Both face-to-face and non face-to-face
+            threatened assaults. If a person has experienced both types, they
+            are counted separately for each but only once in the total
+          </p>
+        </div>
+        <div class="text-6 pure-u-5-24">
+          <p>
+            <b>Combined Assaults:</b> All instances of physical assault and
+            threatened assault. If a person has experienced both physical and
+            threatened assault, they are counted separately for each type but
+            only once in the total
+          </p>
+        </div>
+      </div>
+
+      <h2>Victimisation Rate by State/Territory and Crime Type</h2>
+
+      <!-- Choropleth map -->
+      <div id="choropleth_map"></div>
+
+      <footer>
+        <small style="display: flex; justify-content: center"
+          >Data Source:&nbsp;
+          <a
+            href="https://www.abs.gov.au/statistics/people/crime-and-justice/crime-victimisation/latest-release"
+            >Australian Bureau of Statistics, Crime Victimisation</a
+          >
+        </small>
+      </footer>
     </div>
 
-    <footer>
-      <small style="display: flex; justify-content: center"
-        >Data Source:&nbsp;
-        <a
-          href="https://www.abs.gov.au/statistics/people/crime-and-justice/crime-victimisation/latest-release"
-          >Australian Bureau of Statistics, Crime Victimisation</a
-        >
-      </small>
-    </footer>
     <script type="text/javascript">
       var spec1 = "js/victimisation_rate.vg.json";
       var spec2 = "js/trend.vg.json";

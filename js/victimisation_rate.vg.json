@@ -13,10 +13,10 @@
       }
     }
   ],
-  "vconcat": [
+  "hconcat": [
     {
-      "width": 750,
-      "height": 400,
+      "width": 500,
+      "height": 281,
       "projection": {"type": "mercator"},
       "view": {"fill": "skyblue"},
       "layer": [
@@ -58,8 +58,18 @@
             "color": {
               "field": "Victimisation Rate",
               "type": "quantitative",
-              "scale": {"domain": [0, 12]},
-              "legend": {"title": "Victimisation Rate (%)"}
+              "scale": {
+                "domain": [0, 12],
+                "range": [
+                  "#ffffcc",
+                  "#ffeb99",
+                  "#ffcc66",
+                  "#ff9933",
+                  "#ff6600",
+                  "#ff0000"
+                ]
+              },
+              "legend": {"title": "Victimisation Rate (%)", "orient": "bottom"}
             },
             "tooltip": [
               {
@@ -91,8 +101,8 @@
       ]
     },
     {
-      "width": 750,
-      "height": 400,
+      "width": 500,
+      "height": 281,
       "mark": "bar",
       "data": {
         "url": "https://raw.githubusercontent.com/ChiaYaw/week-10-homework/refs/heads/main/dataset/Victimisation_Rate_v1.3.csv"
@@ -113,7 +123,10 @@
         "color": {
           "field": "Crime Type",
           "type": "nominal",
-          "legend": {"title": "Crime Type"}
+          "scale": {
+            "range": ["#984ea3", "#ff7f00", "#377eb8", "#f781bf", "#a65628"]
+          },
+          "legend": {"title": "Crime Type", "orient": "bottom"}
         },
         "tooltip": [
           {"field": "Crime Type", "type": "nominal", "title": "Crime Type:"},
