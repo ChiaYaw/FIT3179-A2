@@ -25,11 +25,8 @@
   <body>
     <div class="container">
       <h1>Victimisation in Australia from 2008 to 2022</h1>
-
       <div class="pure-g">
-        <!-- Line graph -->
-        <div class="pure-u-3-4" id="trend"></div>
-        <div class="pure-u-1-4 text-container-1">
+        <div class="pure-u-7-24">
           <p class="text-1">
             <b>Victimisation</b> refers to the process of being made a victim of
             a crime or unfair treatment. It involves individuals experiencing
@@ -38,8 +35,11 @@
             emotional abuse.
           </p>
         </div>
+        <!-- Heatmap graph -->
+        <div class="pure-u-17-24" id="heatmap"></div>
       </div>
 
+      <!-- Crime Type Description -->
       <div class="pure-g text-container-2">
         <div class="pure-u-5-24">
           <div class="text-2">
@@ -48,7 +48,7 @@
               harmed.
             </p>
           </div>
-          <br>
+          <br />
           <div class="text-3">
             <p>
               <b>Direct Assault:</b> A person is threatened with harm in a
@@ -86,6 +86,11 @@
       <!-- Choropleth map -->
       <div id="choropleth_map"></div>
 
+      <div class="pure-g">
+        <!-- Line graph -->
+        <div class="pure-u-3-4" id="trend"></div>
+      </div>
+
       <footer>
         <small style="display: flex; justify-content: center"
           >Data Source:&nbsp;
@@ -100,10 +105,14 @@
     <script type="text/javascript">
       var spec1 = "js/victimisation_rate.vg.json";
       var spec2 = "js/trend.vg.json";
+      var spec3 = "js/heatmap.vg.json";
       vegaEmbed("#choropleth_map", spec1)
         .then(function (result) {})
         .catch(console.error);
       vegaEmbed("#trend", spec2)
+        .then(function (result) {})
+        .catch(console.error);
+      vegaEmbed("#heatmap", spec3)
         .then(function (result) {})
         .catch(console.error);
     </script>

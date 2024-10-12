@@ -1,0 +1,55 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 281,
+  "data": {
+    "url": "https://raw.githubusercontent.com/ChiaYaw/FIT3179-A2/refs/heads/main/dataset/Victimisation_Rate_National_v1.2.csv"
+  },
+  "params": [
+    {
+      "name": "Sex_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Male", "Female"],
+        "labels": ["Show All", "Male", "Female"],
+        "name": "Sex Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "Sex_selection == null || datum.Sex == Sex_selection"}
+  ],
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "Year",
+      "type": "ordinal",
+      "title": "Year",
+      "axis": {"labelAngle": 0}
+    },
+    "y": {"field": "Crime Type", "type": "ordinal", "title": "Crime Type"},
+    "color": {
+      "field": "Victimisation Rate",
+      "type": "quantitative",
+      "title": "Victimisation Rate (%):",
+      "scale": {"domain": [0, 10]}
+    },
+    "tooltip": [
+      {"field": "Year", "type": "ordinal", "title": "Year"},
+      {"field": "Crime Type", "type": "nominal", "title": "Crime Type"},
+      {"field": "Sex", "type": "nominal", "title": "Sex"},
+      {
+        "field": "Person",
+        "type": "quantitative",
+        "title": "Number of Victims",
+        "format": ","
+      },
+      {
+        "field": "Victimisation Rate",
+        "type": "quantitative",
+        "title": "Victimisation Rate (%)",
+        "format": ".1f"
+      }
+    ]
+  }
+}

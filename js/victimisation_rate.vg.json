@@ -59,15 +59,8 @@
               "field": "Victimisation Rate",
               "type": "quantitative",
               "scale": {
-                "domain": [0, 12],
-                "range": [
-                  "#ffffcc",
-                  "#ffeb99",
-                  "#ffcc66",
-                  "#ff9933",
-                  "#ff6600",
-                  "#ff0000"
-                ]
+                "scheme": "goldorange",
+                "domain": [0, 10]
               },
               "legend": {"title": "Victimisation Rate (%)", "orient": "bottom"}
             },
@@ -124,7 +117,7 @@
           "field": "Crime Type",
           "type": "nominal",
           "scale": {
-            "range": ["#984ea3", "#ff7f00", "#377eb8", "#f781bf", "#a65628"]
+            "range": ["#009E73", "#D55E00", "#56B4E9", "#FE6100", "#0072B2"]
           },
           "legend": {"title": "Crime Type", "orient": "bottom"}
         },

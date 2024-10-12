@@ -1,14 +1,9 @@
 body {
+    height: 100%;
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    margin: 0;
-}
-
-.container {
-    min-width: 1085px;
-    max-width: 1085px;
 }
 
 h1,
@@ -21,6 +16,11 @@ h2 {
 }
 
 .container {
+    /* border-style: solid;
+    border-width: 3px;
+    border-color: aliceblue; */
+    min-width: 1085px;
+    max-width: 1085px;
     justify-content: center;
 }
 
@@ -28,15 +28,16 @@ h2 {
     background-color: aliceblue;
     line-height: 1.5;
     text-align: left;
-    margin-top: 3rem;
-    padding: 1rem;
+    margin-top: 2rem;
+    margin-right: 2rem;
+    padding: 1.5rem;
 }
 
 .text-container-2 {
     background-color: aliceblue;
     margin-top: 1.5rem;
     margin-bottom: 3rem;
-    padding: 1rem;
+    padding: 1.5rem;
     justify-content: space-between;
 }
 
