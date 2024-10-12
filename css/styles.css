@@ -35,7 +35,7 @@ h2 {
 
 .text-container-2 {
     background-color: aliceblue;
-    margin-top: 1.5rem;
+    margin-top: 1rem;
     margin-bottom: 3rem;
     padding: 1.5rem;
     justify-content: space-between;
@@ -50,6 +50,10 @@ h2 {
     text-align: left;
 }
 
+.sexual_assault_container {
+margin-top: 1.5rem;
+margin-bottom: 3rem;
+}
 
 footer {
     background-color: aliceblue;

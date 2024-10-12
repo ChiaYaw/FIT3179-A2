@@ -81,6 +81,35 @@
         </div>
       </div>
 
+      <h2>Victimisation Rate by Sex and Age Group</h2>
+      <div class="pure-g physical_assault_container">
+        <!-- Physical Assault -->
+        <div class="pure-u-17-24" id="physicalAssault"></div>
+        <div class="pure-u-7-24">
+          <p class="text-1">
+            <b>Victimisation</b> refers to the process of being made a victim of
+            a crime or unfair treatment. It involves individuals experiencing
+            harm, suffering, or loss due to the actions of others. Victimisation
+            can occur in various forms, such as physical assault, theft, or
+            emotional abuse.
+          </p>
+        </div>
+      </div>
+
+      <div class="pure-g sexual_assault_container">
+        <div class="pure-u-7-24">
+          <p class="text-1">
+            <b>Victimisation</b> refers to the process of being made a victim of
+            a crime or unfair treatment. It involves individuals experiencing
+            harm, suffering, or loss due to the actions of others. Victimisation
+            can occur in various forms, such as physical assault, theft, or
+            emotional abuse.
+          </p>
+        </div>
+        <!-- Sexual Assault -->
+        <div class="pure-u-17-24" id="sexualAssault"></div>
+      </div>
+
       <h2>Victimisation Rate by State/Territory</h2>
 
       <!-- Choropleth map -->
@@ -106,6 +135,8 @@
       var spec1 = "js/victimisation_rate.vg.json";
       var spec2 = "js/trend.vg.json";
       var spec3 = "js/heatmap.vg.json";
+      var spec4 = "js/Line_Physical_Assault.vg.json";
+      var spec5 = "js/Line_Sexual_Assault.vg.json";
       vegaEmbed("#choropleth_map", spec1)
         .then(function (result) {})
         .catch(console.error);
@@ -113,6 +144,12 @@
         .then(function (result) {})
         .catch(console.error);
       vegaEmbed("#heatmap", spec3)
+        .then(function (result) {})
+        .catch(console.error);
+      vegaEmbed("#physicalAssault", spec4)
+        .then(function (result) {})
+        .catch(console.error);
+      vegaEmbed("#sexualAssault", spec5)
         .then(function (result) {})
         .catch(console.error);
     </script>
