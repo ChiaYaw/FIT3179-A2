@@ -41,30 +41,33 @@
       {
         "mark": {"type": "line", "point": true, "size": 1.2},
         "encoding": {
-          "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+          "x": {"field": "Year", "type": "ordinal", "title": "Year", "axis": {"labelAngle": 0}
+        },
           "y": {
             "field": "Victimisation Rate",
             "type": "quantitative",
             "title": "Victimisation Rate (%)",
             "scale": {"domain": [0, 10]}
           },
-          "detail": {"field": "Age", "type": "nominal"},
-          "shape": {"field": "Age", "type": "nominal"},
+          "detail": {"field": "Sex", "type": "nominal"},
+          "shape": {"field": "Sex", "type": "nominal"},
           "color": {
-            "field": "Sex",
+            "field": "Age",
             "type": "nominal",
-            "scale": {"domain": ["Male", "Female"]},
-            "legend": {"title": "Sex"}
+            "scale": {
+              "domain": ["15-29 years", "30-44 years", "45 years and over"],
+              "range": ["#1f77b4", "#ff7f0e", "#2ca02c"]
+            }
           },
           "tooltip": [
-            {"field": "Year", "type": "ordinal", "title": "Year:"},
-            {"field": "Sex", "type": "nominal", "title": "Sex:"},
-            {"field": "Age", "type": "nominal", "title": "Age:"},
+            {"field": "Year", "type": "ordinal", "title": "Year"},
+            {"field": "Sex", "type": "nominal", "title": "Sex"},
+            {"field": "Age", "type": "nominal", "title": "Age"},
             {
               "field": "Victimisation Rate",
               "type": "quantitative",
               "format": ".1f",
-              "title": "Victimisation Rate (%):"
+              "title": "Victimisation Rate (%)"
             }
           ]
         }

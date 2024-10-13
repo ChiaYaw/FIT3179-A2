@@ -31,7 +31,8 @@
       {
         "mark": {"type": "line", "point": true},
         "encoding": {
-          "x": {"field": "Year", "type": "ordinal", "title": "Year"},
+          "x": {"field": "Year", "type": "ordinal", "title": "Year", "axis": {"labelAngle": 0}
+        },
           "y": {
             "field": "Victimisation Rate",
             "type": "quantitative",
@@ -49,7 +50,7 @@
           "tooltip": [
             {"field": "Year", "type": "ordinal"},
             {"field": "Age", "type": "nominal"},
-            {"field": "Victimisation Rate", "type": "quantitative", "format": ".1f"}
+            {"field": "Victimisation Rate", "type": "quantitative", "title":"Victimisation Rate (%)", "format": ".1f"}
           ]
         }
       },
