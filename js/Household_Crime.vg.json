@@ -94,14 +94,14 @@
         "encoding": {"y": {"field": "mean_rate", "aggregate": "mean"}}
       },
       {
-        "mark": {"type": "text", "align": "right", "dx": 325},
+        "mark": {"type": "text", "align": "right", "dx": 330},
         "encoding": {
           "y": {"field": "mean_rate", "aggregate": "mean"},
           "text": {"value": "Average Rate:"}
         }
       },
       {
-        "mark": {"type": "text", "align": "left", "dx": 578},
+        "mark": {"type": "text", "align": "left", "dx": 583},
         "encoding": {
           "x": {"value": 0},
           "y": {"field": "mean_rate", "aggregate": "mean"},
