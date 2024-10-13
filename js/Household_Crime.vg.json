@@ -1,8 +1,7 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 281,
-    "title": "Victimization Rates by Household Crime Type",
+    "width": 600,
+    "height": 338,
     "data": {
       "url": "https://raw.githubusercontent.com/ChiaYaw/FIT3179-A2/refs/heads/main/dataset/National_7c_v1.0.csv"
     },
@@ -54,6 +53,9 @@
                 "#a8a8a8",
                 "#56B4E9"
               ]
+            },
+            "legend": {
+                "title": "Household Crime Type"
             }
           },
           "tooltip": [
@@ -94,14 +96,14 @@
         "encoding": {"y": {"field": "mean_rate", "aggregate": "mean"}}
       },
       {
-        "mark": {"type": "text", "align": "right", "dx": 330},
+        "mark": {"type": "text", "align": "right", "dx": 380},
         "encoding": {
           "y": {"field": "mean_rate", "aggregate": "mean"},
           "text": {"value": "Average Rate:"}
         }
       },
       {
-        "mark": {"type": "text", "align": "left", "dx": 583},
+        "mark": {"type": "text", "align": "left", "dx": 683},
         "encoding": {
           "x": {"value": 0},
           "y": {"field": "mean_rate", "aggregate": "mean"},
