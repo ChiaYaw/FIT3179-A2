@@ -108,7 +108,8 @@
         "y": {
           "field": "Victimisation Rate",
           "type": "quantitative",
-          "title": "Victimisation Rate (%)"
+          "title": "Victimisation Rate (%)",
+          "scale": {"domain": [0, 35]}
         },
         "color": {
           "field": "Crime Type",

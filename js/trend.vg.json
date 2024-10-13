@@ -43,20 +43,8 @@
   "transform": [
     {"filter": "datum['State/Territory'] == State_selection"},
     {"filter": "datum['Crime Type'] == CrimeType_selection"},
-    {
-      "joinaggregate": [
-        {"op": "max", "field": "Victimisation Rate", "as": "MaxRate"},
-        {"op": "min", "field": "Victimisation Rate", "as": "MinRate"}
-      ]
-    },
-    {
-      "calculate": "datum['Victimisation Rate'] == datum.MaxRate ? 'Highest rate of;' + format(datum['Victimisation Rate'], '.1f') + '% in ' + datum['Year'] : datum['Victimisation Rate'] == datum.MinRate ? 'Lowest rate of; ' + format(datum['Victimisation Rate'], '.1f') + '% in ' + datum['Year'] : ''",
-      "as": "text_annotation_raw"
-    },
-    {
-      "calculate": "split(datum.text_annotation_raw, ';')",
-      "as": "text_annotation"
-    }
+    {"window": [{"op": "max", "field": "Victimisation Rate", "as": "MaxRate"}]},
+    {"window": [{"op": "min", "field": "Victimisation Rate", "as": "MinRate"}]}
   ],
   "layer": [
     {
@@ -92,11 +80,51 @@
       }
     },
     {
-      "mark": {"type": "text", "align": "left", "dx": 5, "dy": -35, "color": "black", "lineHeight": 15},
+      "mark": {"type": "rule", "color": "red", "strokeDash": [3, 3]},
+      "encoding": {"y": {"field": "Victimisation Rate", "aggregate": "max"}}
+    },
+    {
+      "mark": {"type": "rule", "color": "red", "strokeDash": [3, 3]},
+      "encoding": {"y": {"field": "Victimisation Rate", "aggregate": "min"}}
+    },
+    {
+      "mark": {"type": "text", "align": "right", "dx": 375},
       "encoding": {
-        "x": {"field": "Year", "type": "quantitative"},
-        "y": {"field": "Victimisation Rate", "type": "quantitative"},
-        "text": {"field": "text_annotation", "type": "nominal"}
+        "y": {"field": "MaxRate", "aggregate": "max"},
+        "text": {"value": "Highest Rate:"}
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "right", "dx": 375},
+      "encoding": {
+        "y": {"field": "MinRate", "aggregate": "min"},
+        "text": {"value": "Lowest Rate:"}
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "left", "dx": 678},
+      "encoding": {
+        "x": {"value": 0},
+        "y": {"field": "MaxRate", "aggregate": "max"},
+        "text": {
+          "aggregate": "max",
+          "field": "MaxRate",
+          "type": "quantitative",
+          "format": ".1f"
+        }
+      }
+    },
+    {
+      "mark": {"type": "text", "align": "left", "dx": 678},
+      "encoding": {
+        "x": {"value": 0},
+        "y": {"field": "MinRate", "aggregate": "min"},
+        "text": {
+          "aggregate": "min",
+          "field": "MinRate",
+          "type": "quantitative",
+          "format": ".1f"
+        }
       }
     }
   ]

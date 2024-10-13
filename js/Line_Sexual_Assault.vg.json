@@ -23,8 +23,7 @@
     {
       "window": [
         {"op": "mean", "field": "Victimisation Rate", "as": "mean_rate"}
-      ],
-      "sort": [{"field": "Victimisation Rate", "order": "descending"}]
+      ]
     }
   ],
   "layer": [
