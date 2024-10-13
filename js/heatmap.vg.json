@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
-  "height": 281,
+  "width": 520,
+  "height": 315,
   "data": {
     "url": "https://raw.githubusercontent.com/ChiaYaw/FIT3179-A2/refs/heads/main/dataset/Victimisation_Rate_National_v1.2.csv"
   },
@@ -31,7 +31,7 @@
     "color": {
       "field": "Victimisation Rate",
       "type": "quantitative",
-      "title": "Victimisation Rate (%):",
+      "title": "Victimisation Rate (%)",
       "scale": {"domain": [0, 10]}
     },
     "tooltip": [

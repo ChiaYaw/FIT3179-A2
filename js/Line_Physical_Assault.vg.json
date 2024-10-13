@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 600,
-  "height": 338,
-  "title": "Physical Assault",
+  "height": 330,
+  "title": "Crime Type: Physical Assault",
   "data": {
     "url": "https://raw.githubusercontent.com/ChiaYaw/FIT3179-A2/refs/heads/main/dataset/National_4c_v1.1.csv"
   },

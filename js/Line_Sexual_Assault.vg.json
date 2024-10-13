@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 600,
+  "width": 615,
   "height": 338,
-  "title": "Sexual Assault (Female Only - No data for male)",
+  "title": "Crime Type: Sexual Assault (Females Only - Male Data Unavailable)",
   "data": {
     "url": "https://raw.githubusercontent.com/ChiaYaw/FIT3179-A2/refs/heads/main/dataset/National_4c_v1.1.csv"
   },
@@ -67,14 +67,14 @@
       "encoding": {"y": {"field": "mean_rate", "aggregate": "mean"}}
     },
     {
-      "mark": {"type": "text", "align": "right", "dx": 380},
+      "mark": {"type": "text", "align": "right", "dx": 388},
       "encoding": {
         "y": {"field": "mean_rate", "aggregate": "mean"},
         "text": {"value": "Average Rate:"}
       }
     },
     {
-      "mark": {"type": "text", "align": "left", "dx": 683},
+      "mark": {"type": "text", "align": "left", "dx": 700},
       "encoding": {
         "x": {"value": 0},
         "y": {"field": "mean_rate", "aggregate": "mean"},
