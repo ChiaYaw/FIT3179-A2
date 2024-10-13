@@ -58,13 +58,11 @@
             "color": {
               "field": "Victimisation Rate",
               "type": "quantitative",
-              "scale": {
-                "scheme": "goldorange",
-                "domain": [0, 10]
-              },
+              "scale": {"scheme": "goldorange", "domain": [0, 10]},
               "legend": {"title": "Victimisation Rate (%)", "orient": "bottom"}
             },
             "tooltip": [
+              {"field": "Year", "type": "quantitative", "title": "Year"},
               {
                 "field": "State/Territory",
                 "type": "nominal",
@@ -75,8 +73,7 @@
                 "type": "quantitative",
                 "title": "Victimisation Rate (%)",
                 "format": ".1f"
-              },
-              {"field": "Year", "type": "quantitative", "title": "Year"}
+              }
             ]
           }
         },
@@ -117,24 +114,24 @@
           "field": "Crime Type",
           "type": "nominal",
           "scale": {
-            "range": ["#009E73", "#D55E00", "#56B4E9", "#FE6100", "#0072B2"]
+            "range": ["#009E73", "#964B00", "#56B4E9", "#FE6100", "#0072B2"]
           },
           "legend": {"title": "Crime Type", "orient": "bottom"}
         },
         "tooltip": [
+          {"field": "Year", "type": "quantitative", "title": "Year"},
+          {
+            "field": "State/Territory",
+            "type": "nominal",
+            "title": "State/Territory"
+          },
           {"field": "Crime Type", "type": "nominal", "title": "Crime Type:"},
           {
             "field": "Victimisation Rate",
             "type": "quantitative",
             "title": "Victimisation Rate (%)",
             "format": ".1f"
-          },
-          {
-            "field": "State/Territory",
-            "type": "nominal",
-            "title": "State/Territory"
-          },
-          {"field": "Year", "type": "quantitative", "title": "Year"}
+          }
         ]
       }
     }

@@ -110,8 +110,22 @@
         <div class="pure-u-17-24" id="sexualAssault"></div>
       </div>
 
-      <h2>Victimisation Rate by State/Territory</h2>
+      <h2>Victimisation Rate by Household Crime</h2>
+      <div class="pure-g household_crime_container">
+        <div class="pure-u-7-24">
+          <p class="text-1">
+            <b>Victimisation</b> refers to the process of being made a victim of
+            a crime or unfair treatment. It involves individuals experiencing
+            harm, suffering, or loss due to the actions of others. Victimisation
+            can occur in various forms, such as physical assault, theft, or
+            emotional abuse.
+          </p>
+        </div>
+        <!-- Household Crime -->
+        <div class="pure-u-17-24" id="householdCrime"></div>
+      </div>
 
+      <h2>Victimisation Rate by State/Territory</h2>
       <!-- Choropleth map -->
       <div id="choropleth_map"></div>
 
@@ -137,6 +151,8 @@
       var spec3 = "js/heatmap.vg.json";
       var spec4 = "js/Line_Physical_Assault.vg.json";
       var spec5 = "js/Line_Sexual_Assault.vg.json";
+      var spec6 = "js/Household_Crime.vg.json";
+
       vegaEmbed("#choropleth_map", spec1)
         .then(function (result) {})
         .catch(console.error);
@@ -150,6 +166,9 @@
         .then(function (result) {})
         .catch(console.error);
       vegaEmbed("#sexualAssault", spec5)
+        .then(function (result) {})
+        .catch(console.error);
+      vegaEmbed("#householdCrime", spec6)
         .then(function (result) {})
         .catch(console.error);
     </script>
