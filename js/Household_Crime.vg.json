@@ -98,11 +98,11 @@
         "mark": {"type": "text", "align": "right", "dx": 325},
         "encoding": {
           "y": {"field": "mean_rate", "aggregate": "mean"},
-          "text": {"value": "Average Rate"}
+          "text": {"value": "Average Rate:"}
         }
       },
       {
-        "mark": {"type": "text", "align": "left", "dx": -20},
+        "mark": {"type": "text", "align": "left", "dx": 578},
         "encoding": {
           "x": {"value": 0},
           "y": {"field": "mean_rate", "aggregate": "mean"},
