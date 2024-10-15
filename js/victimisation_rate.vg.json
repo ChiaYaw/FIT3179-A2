@@ -48,45 +48,74 @@
             },
             {"filter": "datum.Year == Year_selection"},
             {
-              "calculate": "'The Northern Territory always has the highest rate of: ' + datum['Victimisation Rate']",
-              "as": "text_annotation"
+              "aggregate": [
+                {
+                  "op": "mean",
+                  "field": "Victimisation Rate",
+                  "as": "AverageVictimisationRate"
+                }
+              ],
+              "groupby": ["State/Territory", "Year", "geo"]
             }
           ],
-          "mark": {"type": "geoshape", "stroke": "white", "strokeWidth": 1.5},
-          "encoding": {
-            "shape": {"field": "geo", "type": "geojson"},
-            "color": {
-              "field": "Victimisation Rate",
-              "type": "quantitative",
-              "scale": {"scheme": "goldorange", "domain": [0, 10]},
-              "legend": {"title": "Victimisation Rate (%)", "orient": "bottom"}
-            },
-            "tooltip": [
-              {"field": "Year", "type": "quantitative", "title": "Year"},
-              {
-                "field": "State/Territory",
-                "type": "nominal",
-                "title": "State/Territory"
+          "layer": [
+            {
+              "mark": {
+                "type": "geoshape",
+                "stroke": "black",
+                "strokeWidth": 0.5
               },
-              {
-                "field": "Victimisation Rate",
-                "type": "quantitative",
-                "title": "Victimisation Rate (%)",
-                "format": ".1f"
+              "encoding": {
+                "shape": {"field": "geo", "type": "geojson"},
+                "color": {
+                  "field": "AverageVictimisationRate",
+                  "type": "quantitative",
+                  "scale": {"scheme": "goldorange", "domain": [0, 10]},
+                  "legend": {
+                    "title": "Average Victimisation Rate (%)",
+                    "orient": "bottom"
+                  }
+                },
+                "tooltip": [
+                  {"field": "Year", "type": "quantitative", "title": "Year"},
+                  {
+                    "field": "State/Territory",
+                    "type": "nominal",
+                    "title": "State/Territory"
+                  },
+                  {
+                    "field": "AverageVictimisationRate",
+                    "type": "quantitative",
+                    "title": "Average Victimisation Rate (%)",
+                    "format": ".1f"
+                  }
+                ]
               }
-            ]
-          }
-        },
-        {
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "dx": 5,
-            "dy": -5,
-            "fontSize": 12,
-            "fontStyle": "italic"
-          },
-          "encoding": {"text": {"field": "text_annotation"}}
+            },
+            {
+              "transform": [
+                {"filter": "datum['State/Territory'] == 'Northern Territory'"},
+                {
+                  "calculate": "'The Northern Territory has the highest average; rate among all states/territories: ' + format(datum.AverageVictimisationRate, '.1f') + '% in ' + datum.Year",
+                  "as": "text_annotation_raw"
+                },
+                {
+                  "calculate": "split(datum.text_annotation_raw, ';')",
+                  "as": "text_annotation"
+                }
+              ],
+              "mark": {
+                "type": "text",
+                "align": "left",
+                "dx": -240,
+                "dy": 111,
+                "fontSize": 10,
+                "fontStyle": "italic",
+                "fontWeight": "bold"
+              },
+              "encoding": {"text": {"field": "text_annotation"}}
+            }
+          ]
         }
       ]
     },
